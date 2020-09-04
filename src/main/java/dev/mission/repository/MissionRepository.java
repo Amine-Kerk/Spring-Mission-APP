@@ -1,6 +1,7 @@
 package dev.mission.repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,8 @@ public interface MissionRepository extends JpaRepository<Mission, Integer> {
 	
 	@Query("SELECT m FROM Mission m WHERE m.dateDebut >= CURRENT_DATE and m.tauxJournalier > :tauxJournalier ")
 	List<Mission> listMissionsTJM(BigDecimal tauxJournalier);
+	
+	List<Mission> findByDateDebutGreaterThanEqual(LocalDate date);
+	List<Mission> findByDateDebutGreaterThanEqualAndTauxJournalierGreaterThanEqual(LocalDate date, BigDecimal prix);
+
 }

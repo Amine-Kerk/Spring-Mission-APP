@@ -30,7 +30,7 @@ public class ListerProchainesMissionsParTJM implements Runnable  {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		List<Mission> listMissionsTJM = missionRepository.listMissionsTJM(BigDecimal.valueOf(50));
+		List<Mission> listMissionsTJM = missionRepository.listMissionsTJM(BigDecimal.valueOf(200));
 		for (Mission mission : listMissionsTJM){
 			LOG.info("id={} libelle={} dateDebut={} dateFin={} tauxJournalier={}", mission.getId(),
 					mission.getLibelle(), mission.getDateDebut(), mission.getDateFin(), mission.getTauxJournalier());
